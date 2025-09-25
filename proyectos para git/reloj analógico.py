@@ -1,16 +1,6 @@
 import os
 import time
-
-def limpiarPantalla():
-    if platform.system() == "Windows":
-        os.system("cls");
-    else:
-        os.system("clear");
-
-def tiempoBorrado():
-    time.sleep(1)
-    limpiarPantalla();
-    
+import platform
 
 lista=['''
  _______
@@ -42,25 +32,29 @@ ____|     ''', '''
  ___ ____
 |   |     
 |___|      ''']
+
+cont = 0
+
+def limpiarPantalla():
+	if platform.system() == "Windows":
+		os.system("cls");
+	else:
+		os.system("clear");
+
+def tiempoBorrado():
+	time.sleep(1)
+	os.system("cls")
+	limpiarPantalla();
+
 for i in range(1, 8):
     for j in range(len(lista)):
         if i==1:
             print(lista[j])
             tiempoBorrado()
-        if i==2:
-            print(lista[j],"\n",lista[1])
+        if i>=2:
+            print(lista[j],"\n",lista[cont])
             tiempoBorrado()
-        if i==3:
-            print(lista[j],"\n",lista[2])
-            tiempoBorrado()
-        if i==4:
-            print(lista[j],"\n",lista[3])
-            tiempoBorrado()
-        if i==5:
-            print(lista[j],"\n",lista[4])
-            tiempoBorrado()
-        if i==6:
-            print(lista[j],"\n",lista[5])
-            tiempoBorrado()
-    if i==7:
+    cont += 1
+        
+    if i==6:
         print("HA PASADO UN MINUTO :D ")
