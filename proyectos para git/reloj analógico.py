@@ -1,9 +1,16 @@
 import os
 import time
 
+def limpiarPantalla():
+    if platform.system() == "Windows":
+        os.system("cls");
+    else:
+        os.system("clear");
+
 def tiempoBorrado():
     time.sleep(1)
-    os.system("cls")
+    limpiarPantalla();
+    
 
 lista=['''
  _______
